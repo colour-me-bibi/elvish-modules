@@ -12,7 +12,9 @@ fn remove {|@args| nix profile remove {$@args} }
 
 fn clean { nix profile remove '.*' }
 
-fn shell {|@args| nix shell 'nixpkgs#'{$@args} }
+fn shell {|@args &cmd=""|
+  nix shell 'nixpkgs#'{$@args} --command $cmd
+}
 
 fn update { nix flake update }
 
