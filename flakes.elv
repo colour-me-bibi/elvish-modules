@@ -1,35 +1,26 @@
 # nix.elv - Nix helper functions
 
-fn -prefix-nixpkgs {|@args|
-  for arg $args {
-    if (str:has-prefix $arg 'nixpkgs#') {
-      put $arg
-    } else {
-      put 'nixpkgs#' + $arg
-    }
-}
+fn install {|@args| nix profile install {$@args} }
 
-fn install {|@args| nix profile install 'nixpkgs#'{$@args} }
+fn list {|@args| nix profile list {$@args} }
 
-fn list { nix profile list }
-
-fn fmt { nix fmt }
+fn fmt {|@args| nix fmt {$@args} }
 
 fn search {|@args| nix search nixpkgs {$@args} }
 
 fn remove {|@args| nix profile remove {$@args} }
 
-fn clean { nix profile remove '.*' }
+fn clean {|@args| nix profile remove '.*' {$@args} }
 
 fn shell {|@args &cmd=""|
   nix shell 'nixpkgs#'{$@args} --command $cmd
 }
 
-fn update { nix flake update }
+fn update {|@args| nix flake update {$@args} }
 
-fn check { nix flake check }
+fn check {|@args| nix flake check {$@args} }
 
-fn git {
+fn git {|@args|
   if (test -f ./flake.nix) {
     nix flake update
     nix flake check
@@ -37,6 +28,7 @@ fn git {
     git commit -m "Update flake.nix"
     git push
   }
+  $args
 }
 
 
