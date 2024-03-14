@@ -26,7 +26,7 @@ fn repo-create {|@args|
 }
 
 fn gist-clone {|@args| gh gist clone $@args }
-fn gist-create {|@args &private=$true| gh gist create $@args }
+fn gist-create {|@args &is-public=$true| gh gist create --public=$is-public $@args }
 fn gist-delete {|@args| gh gist delete $@args }
 fn gist-edit {|@args| gh gist edit $@args }
 fn gist-list {|@args| gh gist list $@args }

@@ -1,0 +1,16 @@
+* TODO Learn Org mode
+  - [ ] Read the Org mode manual
+  - [ ] Practice basic syntax
+  - [ ] Explore advanced features
+
+* Meeting Notes
+  - Attendees: John, Alice, Bob
+  - Date: 2023-05-25
+  - Agenda:
+    1. Project updates
+    2. Budget discussion
+    3. Next steps
+
+* Important Links
+  - [[https://orgmode.org/][Org mode website]]
+  - [[file:~/documents/report.pdf][Monthly Report]]
