@@ -3,14 +3,14 @@ use str
 
 # Function to get the MIME type of a file
 fn get-type {|path|
-  mime-type = (file --mime-type -b $path)
+  var mime-type = (file --mime-type -b $path)
   put $mime-type
 }
 
 # Function to check if file(s) have a specific MIME type
 fn is {|mime-type @paths|
   for path $paths {
-    actual-type = (get-type $path)
+    var actual-type = (get-type $path)
     if (not (str:has-prefix $mime-type $actual-type)) {
       put $false
       return
