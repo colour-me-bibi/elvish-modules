@@ -1,38 +1,38 @@
 # nix.elv - Nix helper functions
 
-fn nx-install {|@args|
+fn install {|@args|
   nix profile install 'nixpkgs#'{$@args}
 }
 
-fn nx-list {
+fn list {
   nix profile list
 }
 
-fn nx-search {|@args|
+fn search {|@args|
   nix search nixpkgs {$@args}
 }
 
-fn nx-remove {|@args|
+fn remove {|@args|
   nix profile remove {$@args}
 }
 
-fn nx-clean {
+fn clean {
   nix profile remove '.*'
 }
 
-fn nx-shell {|@args|
+fn shell {|@args|
   nix shell 'nixpkgs#'{$@args}
 }
 
-fn nx-update {
+fn update {
   nix flake update
 }
 
-fn nx-check {
+fn check {
   nix flake check
 }
 
-fn nx-git {
+fn git {
   if (test -f ./flake.nix) {
     nix flake update
     nix flake check
