@@ -8,8 +8,6 @@ fn repo-view {|@args| gh repo view $@args }
 
 fn repo-create {|@args|
     var specs = [
-        [name '' 'Repository name']
-        [description '' 'Repository description']
         [private $false 'Make the repository private']
     ]
     var flags options = (flag:parse $args $specs)
@@ -20,13 +18,10 @@ fn repo-create {|@args|
     }
 
     gh repo create $flags[name] \
-        --description=$flags[description] \
-        --private=$flags[private] \
         $@options
 }
 
 fn gist-clone {|@args| gh gist clone $@args }
-fn gist-create {|@args &is-public=$true| gh gist create --public=$is-public $@args }
 fn gist-delete {|@args| gh gist delete $@args }
 fn gist-edit {|@args| gh gist edit $@args }
 fn gist-list {|@args| gh gist list $@args }
