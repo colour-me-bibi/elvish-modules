@@ -47,7 +47,7 @@ fn is-text {|@paths|
 # Function to get the file extension based on MIME type
 fn to-ext {|mime-type|
   # Define a dictionary of MIME types and their corresponding extensions
-  mime-ext-map = [
+  var mime-ext-map = [
     &"text/plain"= "txt"
     &"image/jpeg"= "jpg"
     &"image/png"= "png"
@@ -65,7 +65,7 @@ fn to-ext {|mime-type|
 # Function to get the MIME type based on file extension
 fn from-ext {|ext|
   # Define a dictionary of file extensions and their corresponding MIME types
-  ext-mime-map = [
+  var ext-mime-map = [
     &"txt"= "text/plain"
     &"jpg"= "image/jpeg"
     &"png"= "image/png"
