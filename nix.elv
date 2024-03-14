@@ -8,6 +8,10 @@ fn list {
   nix profile list
 }
 
+fn fmt {
+  nix fmt
+}
+
 fn search {|@args|
   nix search nixpkgs {$@args}
 }
