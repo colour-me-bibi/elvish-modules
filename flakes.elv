@@ -1,5 +1,14 @@
 # nix.elv - Nix helper functions
 
+fn -prefix-nixpkgs {|@args|
+  for arg $args {
+    if (str:has-prefix $arg 'nixpkgs#') {
+      put $arg
+    } else {
+      put 'nixpkgs#' + $arg
+    }
+}
+
 fn install {|@args| nix profile install 'nixpkgs#'{$@args} }
 
 fn list { nix profile list }
